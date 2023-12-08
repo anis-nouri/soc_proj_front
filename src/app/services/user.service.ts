@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'your_backend_api_url';
+  private apiUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +32,11 @@ export class UserService {
 
   deleteUser(username: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/api/users/${username}`);
+  }
+
+  login(username: string, password: string): Observable<any> {
+    // Adjust the API endpoint and payload according to your authentication API
+    const loginPayload = { username, password };
+    return this.http.post<any>(`${this.apiUrl}/api/users/login`, loginPayload);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } fr
 import { environment } from '@env/environment';
 
 import { Map, NavigationControl, Marker } from 'maplibre-gl';
+import { EventService } from '../services/event.service';
 
 @Component({
   selector: 'app-map',
@@ -14,8 +15,21 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('map')
   private mapContainer!: ElementRef<HTMLElement>;
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
+  events: Event[] = [];
+
+  getAllEvents(): void {
+    this.eventService.getAllEvents().subscribe(
+      (events: Event[]) => {
+        this.events = events;
+        console.log('All events:', this.events);
+      },
+      error => {
+        console.error('Error fetching users:', error);
+      }
+    );
+  }
   ngOnInit(): void {
   }
 

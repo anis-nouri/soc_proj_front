@@ -1,0 +1,88 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100%;
+  margin: 0; /* Added to remove default margin */
+  background: #e3f2fd;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  width: 260px;
+  height: 100vh;
+  background-color: #fff;
+  background: #fff; /* Set a background color for the box */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin: 20px 24px;
+}
+
+.logo .menu-icon {
+  color: #333;
+  font-size: 24px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.logo .logo-name {
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+
+.list {
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #4070f4;
+}
+
+.icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #707070;
+}
+
+.link {
+  font-size: 16px;
+  color: #707070;
+  font-weight: 400;
+}
+
+.nav-link:hover .icon,
+.nav-link:hover .link {
+  color: #fff;
+}

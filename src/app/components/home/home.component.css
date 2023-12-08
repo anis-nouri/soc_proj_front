@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f1f1f1; /* Add a background color */
+  }
+
+  .center-box {
+    max-width: 800px; /* Adjust the max-width for a larger box */
+    width: 100%;
+    background: #fff; /* Set a background color for the box */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow */
+    overflow: hidden; /* Hide any overflowing content */
+  }
+
+  .container {
+    position: relative;
+    padding: 20px; /* Add some padding for spacing inside the box */
+  }
+
+
+  
+
+
+  

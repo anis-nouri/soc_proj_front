@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddeventComponent } from './components/addevent/addevent.component';
+import { MapaddComponent } from './components/mapadd/mapadd.component';
+
 
 
 @NgModule({
@@ -20,13 +25,17 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     SideBarComponent,
+    AddeventComponent,
+    MapaddComponent
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

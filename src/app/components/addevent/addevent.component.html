@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com-->
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Login and Registration Form in HTML & CSS | CodingLab</title>
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>    
+    <div class="formbold-main-wrapper">
+        <!-- Author: FormBold Team -->
+        <!-- Learn More: https://formbold.com -->
+        <div class="formbold-form-wrapper">
+            <form [formGroup]="form" (ngSubmit)="submitForm()">
+                <div class="formbold-input-group">
+                  <label for="title" class="formbold-form-label">Title</label>
+                  <input type="text" formControlName="title" id="title" placeholder="Enter the title" class="formbold-form-input" />
+                </div>
+              
+                <div class="formbold-input-group">
+                  <label for="message" class="formbold-form-label">Description</label>
+                  <textarea
+                    rows="5"
+                    formControlName="message"
+                    id="message"
+                    placeholder="Type here..."
+                    class="formbold-form-input"
+                  ></textarea>
+                </div>
+              
+                <div class="formbold-input-group">
+                  <label for="datetime" class="formbold-form-label">Date</label>
+                  <input type="datetime-local" #datetimeInput formControlName="datetime" id="datetime" class="formbold-form-input" />
+
+                </div>
+              
+                <div class="formbold-input-group">
+                  <label for="longitude" class="formbold-form-label">Longitude</label>
+                  <input type="text" formControlName="longitude" id="longitude" class="formbold-form-input" />
+                </div>
+              
+                <div class="formbold-input-group">
+                  <label for="latitude" class="formbold-form-label">Latitude</label>
+                  <input type="text" formControlName="latitude" id="latitude" class="formbold-form-input" />
+                </div>
+              
+                <div class="formbold-btn-group">
+                  <button type="submit" class="formbold-btn">Submit</button>
+                  <button type="button" class="formbold-btn" (click)="resetForm()">Return</button>
+                </div>
+              </form>
+              
+        </div>
+      </div>
+      <style>
+
+      </style>
+
+    <div class="center-box">
+      <div class="container">
+        <app-mapadd (markerDragged)="onMarkerDragged($event)"></app-mapadd>
+
+      </div>
+    </div>
+
+  </body>
+</html>

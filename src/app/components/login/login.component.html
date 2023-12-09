@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
-  <div class="container">
+  <div class="container" >
     <input type="checkbox" id="flip">
-    <div class="cover">
+    <div class="cover" [@flip]="flipState">
       <div class="front">
         <img src="../../../assets/denys-nevozhai-7nrsVjvALnA-unsplash.jpg" alt="">
         <div class="text">
@@ -45,31 +45,45 @@
     <div class="button input-box">
         <input type="submit" value="Sumbit">
       </div>
-    <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>  </div>
+    <div class="text sign-up-text">Don't have an account? <label (click)="flipOtherObject()">Sigup now</label></div>  </div>
 </form>
       </div>
         <div class="signup-form">
           <div class="title">Signup</div>
-        <form action="#">
+          <form [formGroup]="registrationForm" (ngSubmit)="createUser()">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
+                <input type="text" placeholder="Enter your name" formControlName="nom" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Enter your last name" formControlName="prenom" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input type="text" placeholder="Enter your username" formControlName="username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" placeholder="Enter your password" formControlName="password" required>
+              </div>
+              <div class="input-box">
+                <label for="selectedGovernorate">Select your location</label>
+                <div class="custom-select">
+                  <select formControlName="lieu" id="selectedGovernorate" required>
+                    <option value="" disabled>Select a governorate</option>
+                    <option *ngFor="let governorate of tunisiaGovernorates"  [value]="governorate">{{ governorate }}</option>
+                  </select>
+                  <i class="fas fa-chevron-down"></i> <!-- Add an icon for a visual indicator -->
+                </div>
               </div>
               <div class="button input-box">
-                <input type="submit" value="Sumbit">
+                <input type="submit" value="Submit">
               </div>
-              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+              <div class="text sign-up-text" >Already have an account? <label (click)="flipOtherObject()">Login now</label></div>
             </div>
-      </form>
+        </form>        
     </div>
     </div>
     </div>

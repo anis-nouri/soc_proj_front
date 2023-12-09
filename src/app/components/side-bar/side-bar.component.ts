@@ -19,4 +19,8 @@ export class SideBarComponent implements OnInit {
     this.router.navigate(['/login']); 
   }
 
+  navigateToAddEvent() {
+    this.router.navigate(['/addevent']);
+  }
+
 }

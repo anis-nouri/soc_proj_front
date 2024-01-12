@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { environment } from '@env/environment';
-
-import { Map, NavigationControl, Marker } from 'maplibre-gl';
+import {evenement}  from '../models/evenement.model';
+import { Map, NavigationControl, Marker, Popup, GeolocateControl } from 'maplibre-gl';
 import { EventService } from '../services/event.service';
 
 @Component({
@@ -17,37 +17,71 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private eventService: EventService) { }
 
-  events: Event[] = [];
-
-  getAllEvents(): void {
+  events: evenement[] = [];
+  getAllEvents(map: Map): void {
     this.eventService.getAllEvents().subscribe(
-      (events: Event[]) => {
+      (events: evenement[]) => {
         this.events = events;
-        console.log('All events:', this.events);
+        for (const evenement of this.events) {
+          console.log('Received events:', evenement);
+          const { latitude: eventLatitude, longitude: eventLongitude, title, date, description, user } = evenement;
+          const  authenticatedUser= localStorage.getItem("username");
+          const isCurrentUserEvent = authenticatedUser && user && user.username === authenticatedUser ;
+          const markerColor = isCurrentUserEvent ? '#0000FF' : '#FF0000';
+          const marker = new Marker({ color: markerColor })
+            .setLngLat([eventLongitude, eventLatitude])
+            .addTo(map);
+  
+          const popup = new Popup()
+            .setHTML(`<strong>${title}</strong><br>${date}<br>${description}`);
+  
+          marker.setPopup(popup);
+  
+          marker.getElement()?.addEventListener('mouseenter', () => {
+            marker.togglePopup(); // Show the popup on hover
+          });
+  
+          marker.getElement()?.addEventListener('mouseleave', () => {
+            marker.togglePopup(); // Hide the popup when not hovering
+          });
+        }
       },
       error => {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching events:', error);
       }
     );
   }
+  
   ngOnInit(): void {
   }
 
-  ngAfterViewInit() {
-    const initialState = { lng: 139.753, lat: 35.6844, zoom: 14 };
+  ngAfterViewInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
 
-    this.map = new Map({
-      container: this.mapContainer.nativeElement,
-      style: `https://api.maptiler.com/maps/streets/style.json?key=${environment.apiKey}`,
-      center: [initialState.lng, initialState.lat],
-      zoom: initialState.zoom
+      this.map = new Map({
+        container: this.mapContainer.nativeElement,
+        style: `https://api.maptiler.com/maps/streets/style.json?key=${environment.apiKey}`,
+        center: [longitude, latitude],  
+        zoom: 12
+      });
+
+      this.map.addControl(new NavigationControl());
+      this.getAllEvents(this.map);
+
+      this.map.addControl(
+        new GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        })
+    );
+
+     
     });
-
-    this.map.addControl(new NavigationControl());
-    new Marker({color: "#FF0000"})
-      .setLngLat([139.7525,35.6846])
-      .addTo(this.map);
   }
+
 
   ngOnDestroy() {
     this.map?.remove();

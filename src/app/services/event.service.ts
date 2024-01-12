@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { evenement } from '../models/evenement.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,21 @@ export class EventService {
 
   constructor(private http: HttpClient) {}
 
-  getAllEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(`${this.apiUrl}/events`);
+  getAllEvents(): Observable<evenement[]> {
+    return this.http.get<evenement[]>(`${this.apiUrl}/events`);
   }
 
-  getEvent(id: number): Observable<Event> {
-    return this.http.get<Event>(`${this.apiUrl}/events/${id}`);
+  getEvent(id: number): Observable<evenement> {
+    return this.http.get<evenement>(`${this.apiUrl}/events/${id}`);
   }
 
-  createEvent(event: Event): Observable<Event> {
-    return this.http.post<Event>(`${this.apiUrl}/events`, event);
+  createEvent(evenement: evenement, username: string): Observable<evenement> {
+    const params = new HttpParams().set('username', username);
+    return this.http.post<evenement>(`${this.apiUrl}/events`, evenement, { params });
   }
 
-  updateEvent(id: number, updatedEvent: Event): Observable<Event> {
-    return this.http.put<Event>(`${this.apiUrl}/events/${id}`, updatedEvent);
+  updateEvent(id: number, updatedEvent: evenement): Observable<evenement> {
+    return this.http.put<evenement>(`${this.apiUrl}/events/${id}`, updatedEvent);
   }
 
   deleteEvent(id: number): Observable<void> {

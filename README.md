@@ -6,10 +6,10 @@ Overall, it provides a user-friendly interface for interacting with and staying 
 
 ## Screenshot
 
-![app login interface](/assets/capture1)
-![app signin interface](/assets/capture2)
-![app homescreen interface](/assets/capture3)
-![app add event interface](/assets/capture4)
+![app login interface](/assets/Capture1)
+![app signin interface](/assets/Capture2)
+![app homescreen interface](/assets/Capture3)
+![app add event interface](/assets/Capture4)
 
 
 ## Build With

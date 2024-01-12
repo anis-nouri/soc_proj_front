@@ -1,26 +1,16 @@
-# MapLibre GL JS map using Angular
+# Real-Time Road Incident Tracking and Reporting with Angular using MapLibre GL JS map  
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Front-end application developed using Angular, focused on managing and visualizing real-time events, particularly related to road incidents. Users can add and view events on a map, where each event is represented by tags displaying specific details. The application allows users to contribute by adding their own events and provides a feature to report incidents or noteworthy occurrences. 
 
-A quick way to start a web map application with Angular using MapLibre GL JS.
-
-A simple fullscreen map application is used to showcase how to utilize MapTiler maps together with Angular and MapLibre GL JS for your Angular app.
+Overall, it provides a user-friendly interface for interacting with and staying informed about events, particularly those related to road incidents.
 
 ## Screenshot
 
-![angular maplibre template](/assets/angular-maplibre-template.png "Angular MapLibre template")
+![app login interface](/assets/capture1")
+![app signin interface](/assets/capture2")
+![app homescreen interface](/assets/capture3")
+![app aad event interface](/assets/capture4")
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Step-by-step tutorial - How to display a map in Angular using MapLibre GL JS
-
-Documentation: [How to display a map in Angular using MapLibre GL JS](https://docs.maptiler.com/angular/maplibre-gl-js/how-to-use-maplibre-gl-js/?utm_medium=referral&utm_source=github&utm_campaign=2022-05%20%7C%20js%20frameworks%20%7C%20angular)
-
-## Demo
-
-Online demo: https://labs.maptiler.com/angular-template-maplibre-gl-js/
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Build With
 
@@ -84,31 +74,3 @@ You will find your app on address http://localhost:4200/.
 Now you should see the app in your browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-### Build
-
-To build for production, run: 
-```
-  ng build --base-href /angular-template-maplibre-gl-js/
-``` 
-
-### gh-pages
-
-To deploy the app to the gh-pages branch, run:
-```
-  node gh-pages.js
-```
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Instead of using or developing a custom map component, you can use the [Angular binding of maplibre-gl-js (ngx-maplibre-gl)](https://maplibre.org/ngx-maplibre-gl/).
-
-Checkout to [Get started with Angular and MapLibre GL JS](https://github.com/maptiler/get-started-angular-maplibre-gl-js) repo to use de ngx-maplibre-gl component.

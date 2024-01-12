@@ -6,10 +6,10 @@ Overall, it provides a user-friendly interface for interacting with and staying 
 
 ## Screenshot
 
-![app login interface](/assets/capture1")
-![app signin interface](/assets/capture2")
-![app homescreen interface](/assets/capture3")
-![app aad event interface](/assets/capture4")
+![app login interface](/assets/capture1)
+![app signin interface](/assets/capture2)
+![app homescreen interface](/assets/capture3)
+![app add event interface](/assets/capture4)
 
 
 ## Build With
@@ -40,7 +40,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Clone the repo to create a new angular project. Run in your command-line:
 
 ```
-  git clone https://github.com/maptiler/angular-template-maplibre-gl-js.git my-angular-map
+  git clone https://github.com/anis-nouri/soc_proj_front
 ```
 
 Navigate to the newly created project folder **my-angular-map**
